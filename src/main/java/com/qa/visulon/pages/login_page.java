@@ -36,7 +36,4 @@ public class login_page extends ElementUtils{
 	
 	
 	
-	
-	
-	
 }

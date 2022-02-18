@@ -12,12 +12,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Driverfactory {
 
-	WebDriver driver;
+	private WebDriver driver;
 
 	public WebDriver init_browser(Properties prop) {
 
 		String browser = prop.getProperty("browserType");
-		String url = prop.getProperty("URL");
+		String url = prop.getProperty("UrL");
 
 		if (browser.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -37,7 +37,9 @@ public class Driverfactory {
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.get(url);
+		//driver.get(url);
+		
+		driver.navigate().to(url);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		return driver;
