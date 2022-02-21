@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import com.qa.visulon.Utils.ConfigReader;
 import com.qa.visulon.factory.Driverfactory;
 import com.qa.visulon.pages.login_page;
+import com.qa.visulon.pages.productSearch;
 
 public class baseSetup {
 
@@ -21,6 +22,8 @@ public class baseSetup {
 	public Properties prop;
 
 	public login_page lp;
+	
+	public productSearch ps;
 
 	@BeforeClass
 	public void browserSetup() {
@@ -31,6 +34,8 @@ public class baseSetup {
 		driver = df.init_browser(prop);
 
 		lp = new login_page(driver);
+		
+		ps= new productSearch(driver);
 
 	}
 

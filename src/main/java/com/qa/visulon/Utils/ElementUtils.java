@@ -16,7 +16,7 @@ public class ElementUtils {
 	// Constructor
 	public ElementUtils(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver,0);
+		wait = new WebDriverWait(driver,5);
 	}
 
 	// Click Method

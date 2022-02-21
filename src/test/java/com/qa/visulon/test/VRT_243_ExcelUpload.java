@@ -10,7 +10,7 @@ public class VRT_243_ExcelUpload extends baseSetup {
 	@Test(priority = 0, dataProvider = "logindata", dataProviderClass = Puma_ExcelReader.class)
 	public void Puma_login(String uname, String pwd) {
 		lp.loginToPUMA(uname, pwd);
-
+        ps.AllDownloadTemplate();
 	}
 
 }
