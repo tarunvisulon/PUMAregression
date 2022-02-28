@@ -1,39 +1,35 @@
 package com.qa.visulon.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import com.qa.visulon.Utils.ElementUtils;
+public class login_page {
 
-public class login_page extends ElementUtils{
-   
-	
 	WebDriver driver;
-	
-	private By username = By.id("txtUserName");
 
-	private By password = By.id("txtPassword");
+	@FindBy(id = "txtUserName")
+	private WebElement userName;
 
-	private By lgnbtn = By.id("LinkButton1");
+	@FindBy(id = "txtPassword")
+	private WebElement password;
 
-	
-	
-	public login_page(WebDriver driver)
-	{
-	
-		super(driver);
-		
+	@FindBy(id = "LinkButton1")
+	private WebElement lgnbtn;
+
+	public login_page(WebDriver driver) {
+
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+
 	}
-	
-	
-	public login_page loginToPUMA(String uname, String pwd)
-	{
-		writeText(username, uname);
-		writeText(password, pwd);
-		click(lgnbtn);
-		return this;
+
+	public void loginToPUMA(String uname, String pwd) {
+		userName.sendKeys(uname);
+		password.sendKeys(pwd);
+		lgnbtn.click();
+
 	}
-	
-	
-	
+
 }

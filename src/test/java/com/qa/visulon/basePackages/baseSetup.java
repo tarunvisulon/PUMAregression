@@ -5,11 +5,11 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
 import com.qa.visulon.Utils.ConfigReader;
 import com.qa.visulon.factory.Driverfactory;
 import com.qa.visulon.pages.login_page;
-import com.qa.visulon.pages.productSearch;
+import com.qa.visulon.pages.productSearch_BlankimportTemplate;
+import com.qa.visulon.pages.productSearch_DownloadTemplate;
 
 public class baseSetup {
 
@@ -22,8 +22,10 @@ public class baseSetup {
 	public Properties prop;
 
 	public login_page lp;
-	
-	public productSearch ps;
+
+	public productSearch_DownloadTemplate ps;
+
+	public productSearch_BlankimportTemplate it;
 
 	@BeforeClass
 	public void browserSetup() {
@@ -34,14 +36,15 @@ public class baseSetup {
 		driver = df.init_browser(prop);
 
 		lp = new login_page(driver);
-		
-		ps= new productSearch(driver);
+
+		ps = new productSearch_DownloadTemplate(driver);
+
+		it = new productSearch_BlankimportTemplate(driver);
 
 	}
 
 	@AfterClass
-	public void browserClose() 
-	{
+	public void browserClose() {
 		if (driver != null) {
 
 			System.out.println("Browser Closed");

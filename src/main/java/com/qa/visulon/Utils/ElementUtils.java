@@ -1,42 +1,28 @@
 package com.qa.visulon.Utils;
 
-
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 public class ElementUtils {
 
-	public WebDriver driver;
-	public WebDriverWait wait;
+	WebDriver driver;
 
-	// Constructor
-	public ElementUtils(WebDriver driver) {
-		this.driver = driver;
-		wait = new WebDriverWait(driver,5);
+	public static void getElement(WebElement element, String path) {
+		element.sendKeys(path);
 	}
 
-	// Click Method
-	public void click(By by) {
-		waitVisibility(by).click();
+	public static void mouseAction(WebDriver driver, WebElement element)
+
+	{
+		Actions a = new Actions(driver);
+		a.moveToElement(element).build().perform();
+
 	}
 
-	// Write Text
-	public void writeText(By by, String text) {
-		waitVisibility(by).sendKeys(text);
-	}
+	public static String getText(WebElement element) {
 
-	// Read Text
-	public String readText(By by) {
-		return waitVisibility(by).getText();
-	}
+		return element.getText();
 
-	// Wait
-	public WebElement waitVisibility(By by) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
-
 }
