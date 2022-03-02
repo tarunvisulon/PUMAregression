@@ -7,7 +7,14 @@ public class ConstantData {
 	
 	public static String Excel_path="./ExcelData/userLogin.xlsx";
 	
-	public static String SuccessImportmsg="Sheet has no record to import.";
+	public static String NoRecord_SuccessImportmsg="Sheet has no record to import.";
+	
+	public static String Valid_SuccessImportmsg="Area RRP Template Imported Successfully";
+	
+	public static String AreaRRP_Article="073581 48";
+	
+	public static String Season="For Spring/Summer 2022";
+
 	
 	public static String Blank_ArticleSearch_path="D:\\TREX\\PUMA\\Regression\\Blank_importTemplate\\Blank_Import_Template 2022 Spring-Summer.xlsx";
 	
@@ -20,7 +27,7 @@ public class ConstantData {
 	
     public static String ArticleSearch_path="";
 	
-	public static String AreaRRP_path="";
+	public static String AreaRRP_path="D:\\TREX\\PUMA\\Regression\\Valid_ImportTemplate\\Area RRP 2022 Spring-Summer.xlsx";
 	
 	public static String WHSPrice_path="";
 	

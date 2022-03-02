@@ -1,6 +1,5 @@
 package com.qa.visulon.pages;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,10 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.visulon.Utils.ConstantData;
 import com.qa.visulon.Utils.ElementUtils;
+import com.qa.visulon.Utils.Puma_writeData;
 
-public class productSearch_BlankimportTemplate {
+public class productSearch_ValidImportTemplate {
 
 	WebDriver driver;
+	
+	public static String text_AreaRRP;
 
 	@FindBy(xpath = "//div[@class='clientLogo']/parent::div//div[@id='btnProductSearch']")
 	private WebElement productSearch;
@@ -21,9 +23,6 @@ public class productSearch_BlankimportTemplate {
 
 	@FindBy(xpath = "//div[@id='exportReportTab']/parent::div//div[text()='Import Template']")
 	private WebElement ImportTemplate;
-
-	@FindBy(xpath = "//div[@class='articleSearchBtn']//input[@name='rbImportTemplate']")
-	private WebElement ArticleSearch;
 
 	@FindBy(xpath = "//div[@class='areaRRPBtn']//input[@name='rbImportTemplate']")
 	private WebElement AreaRRP;
@@ -44,73 +43,67 @@ public class productSearch_BlankimportTemplate {
 	private WebElement SeasonSelection;
 
 	@FindBy(xpath = "//div[@id='SuccessMsg']")
-	private WebElement BlankSuccessmsg;
-	
+	private WebElement ValidSuccessmsg;
+
 	@FindBy(xpath = "//div[@onclick=\"$('.importExpFilePopupWrapper, #ImportFileExcelPopupDiv').hide()\"]//span[@class='modernPopupCloseIcon']")
 	private WebElement CloseExcelPopup;
 
-	public productSearch_BlankimportTemplate(WebDriver driver) {
+	@FindBy(xpath = "(//input[@id='ContentPlaceHolder1_txtSearch'])[1]")
+	private WebElement QuickSsearch_box;
 
+	@FindBy(xpath = "(//input[@id='ContentPlaceHolder1_btnSearch'])[1]")
+	private WebElement QuickSearch_btn;
+
+	@FindBy(xpath = "//div[@class='ProductSearch_CanceledArticle']//img")
+	private WebElement SelectArticles;
+
+	@FindBy(xpath = "//img[@id='imgProductSpecs']")
+	private WebElement blueI;
+
+	@FindBy(xpath = "//span[normalize-space()='Area RRP']/parent::td/following-sibling::td/span[@class='attrContent']")
+	private WebElement fetchAreaRRP;
+
+	public productSearch_ValidImportTemplate(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 
 	}
 
-	public void Blank_importTemplate() throws InterruptedException {
-
+	public String valid_importTemplate() {
 		productSearch.click();
 		Excelbtn.click();
 		ImportTemplate.click();
-		String season = SeasonSelection.getText();
-		System.out.println(season);
-
-	}
-	
-	// Article Search
-
-	public String Blank_ArticleSearchImport() throws InterruptedException {
-		ArticleSearch.click();
-		Thread.sleep(3000);
-		ElementUtils.getElement(Choosefile, ConstantData.Blank_ArticleSearch_path);
-		Thread.sleep(3000);
-		importTempbtn.click();
-		Thread.sleep(3000);
-		return ElementUtils.getText(BlankSuccessmsg).trim();
-
+		String season = SeasonSelection.getText().trim();
+		text_AreaRRP=ElementUtils.getRandomInt();
+		Puma_writeData.writeData(ConstantData.AreaRRP_path, "Template", 1, 1, text_AreaRRP);
+		return season;
 	}
 
-	// Area RRP
-
-	public String Blank_AreaRRPImport() throws InterruptedException {
+	public String AreaRRP_ImportTeplate() throws InterruptedException {
 
 		AreaRRP.click();
 		Thread.sleep(3000);
-		ElementUtils.getElement(Choosefile, ConstantData.Blank_AreaRRP_path);
+		ElementUtils.getElement(Choosefile, ConstantData.AreaRRP_path);
 		Thread.sleep(3000);
 		importTempbtn.click();
 		Thread.sleep(3000);
-		return ElementUtils.getText(BlankSuccessmsg).trim();
-	}
-	// Area WHS
+		String msg = ElementUtils.getText(ValidSuccessmsg).trim();
+		Thread.sleep(3000);
+		CloseExcelPopup.click();
+		return msg;
 
-	public String Blank_WHSImport() throws InterruptedException {
-		WHSPrice.click();
-		Thread.sleep(3000);
-		ElementUtils.getElement(Choosefile, ConstantData.Blank_WHSPrice_path);
-		Thread.sleep(3000);
-		importTempbtn.click();
-		Thread.sleep(3000);
-		return ElementUtils.getText(BlankSuccessmsg).trim();
 	}
-	// Area RFC
 
-	public String Blank_RFCImport() throws InterruptedException {
-		RFC.click();
+	public String AreaRRP_ImportValidation() throws InterruptedException {
+
+		QuickSsearch_box.sendKeys(ConstantData.AreaRRP_Article);
+		QuickSearch_btn.click();
+		Thread.sleep(5000);
+		ElementUtils.mouseAction(driver, SelectArticles);
+		blueI.click();
 		Thread.sleep(3000);
-		ElementUtils.getElement(Choosefile, ConstantData.Blank_RFC_path);
-		Thread.sleep(3000);
-		importTempbtn.click();
-		Thread.sleep(3000);
-		return ElementUtils.getText(BlankSuccessmsg).trim();
+		return ElementUtils.getText(fetchAreaRRP);
+
 	}
+
 }

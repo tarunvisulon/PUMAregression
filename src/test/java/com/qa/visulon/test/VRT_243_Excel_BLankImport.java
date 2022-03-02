@@ -22,10 +22,10 @@ public class VRT_243_Excel_BLankImport extends baseSetup
 	{
 		
 		it.Blank_importTemplate();
-		Assert.assertEquals(it.Blank_ArticleSearchImport(),ConstantData.SuccessImportmsg);
-		Assert.assertEquals(it.Blank_AreaRRPImport(),ConstantData.SuccessImportmsg);
-		Assert.assertEquals(it.Blank_WHSImport(), ConstantData.SuccessImportmsg);
-		Assert.assertEquals(it.Blank_RFCImport(), ConstantData.SuccessImportmsg);
+		Assert.assertEquals(it.Blank_ArticleSearchImport(),ConstantData.NoRecord_SuccessImportmsg);
+		Assert.assertEquals(it.Blank_AreaRRPImport(),ConstantData.NoRecord_SuccessImportmsg);
+		Assert.assertEquals(it.Blank_WHSImport(), ConstantData.NoRecord_SuccessImportmsg);
+		Assert.assertEquals(it.Blank_RFCImport(), ConstantData.NoRecord_SuccessImportmsg);
 	  
 		
 	}

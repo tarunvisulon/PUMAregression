@@ -10,6 +10,7 @@ import com.qa.visulon.factory.Driverfactory;
 import com.qa.visulon.pages.login_page;
 import com.qa.visulon.pages.productSearch_BlankimportTemplate;
 import com.qa.visulon.pages.productSearch_DownloadTemplate;
+import com.qa.visulon.pages.productSearch_ValidImportTemplate;
 
 public class baseSetup {
 
@@ -26,6 +27,8 @@ public class baseSetup {
 	public productSearch_DownloadTemplate ps;
 
 	public productSearch_BlankimportTemplate it;
+	
+	public productSearch_ValidImportTemplate vd;
 
 	@BeforeClass
 	public void browserSetup() {
@@ -40,6 +43,8 @@ public class baseSetup {
 		ps = new productSearch_DownloadTemplate(driver);
 
 		it = new productSearch_BlankimportTemplate(driver);
+		
+		vd = new productSearch_ValidImportTemplate(driver);
 
 	}
 
