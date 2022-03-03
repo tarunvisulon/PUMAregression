@@ -9,7 +9,7 @@ import com.qa.visulon.Utils.ConstantData;
 import com.qa.visulon.Utils.ElementUtils;
 import com.qa.visulon.Utils.Puma_writeData;
 
-public class productSearch_ValidImportTemplate {
+public class productSearch_AreaRRP_ValidImportTemplate {
 
 	WebDriver driver;
 	
@@ -63,7 +63,7 @@ public class productSearch_ValidImportTemplate {
 	@FindBy(xpath = "//span[normalize-space()='Area RRP']/parent::td/following-sibling::td/span[@class='attrContent']")
 	private WebElement fetchAreaRRP;
 
-	public productSearch_ValidImportTemplate(WebDriver driver) {
+	public productSearch_AreaRRP_ValidImportTemplate(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 
@@ -96,7 +96,7 @@ public class productSearch_ValidImportTemplate {
 
 	public String AreaRRP_ImportValidation() throws InterruptedException {
 
-		QuickSsearch_box.sendKeys(ConstantData.AreaRRP_Article);
+		QuickSsearch_box.sendKeys(ConstantData.Common_Article);
 		QuickSearch_btn.click();
 		Thread.sleep(5000);
 		ElementUtils.mouseAction(driver, SelectArticles);

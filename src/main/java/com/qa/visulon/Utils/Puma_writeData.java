@@ -14,11 +14,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class Puma_writeData {
 
 	@SuppressWarnings("null")
-	public static void writeData(String ExcelPath, String Sheetname, int rowCount, int ColumnCount, String string) {
+	public static void writeData(String ExcelPath, String Sheetname, int rowCount, int ColumnCount, String value) {
 		try {
 			File f = new File(ExcelPath);
 			System.out.println(f.exists());
-			
+
 			FileInputStream fis = new FileInputStream(f);
 
 			XSSFWorkbook wb = new XSSFWorkbook(fis);
@@ -27,16 +27,17 @@ public class Puma_writeData {
 
 			XSSFRow row = sheet.getRow(rowCount);
 
-			XSSFCell cell = row.getCell(ColumnCount,org.apache.poi.ss.usermodel.Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+			XSSFCell cell = row.getCell(ColumnCount,
+					org.apache.poi.ss.usermodel.Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
 
 			if (cell == null) {
 
 				row.createCell(ColumnCount);
-				cell.setCellValue(string);
+				cell.setCellValue(value);
 
 			} else {
 
-				cell.setCellValue(string);
+				cell.setCellValue(value);
 			}
 
 			FileOutputStream fio = new FileOutputStream(f);
@@ -49,14 +50,14 @@ public class Puma_writeData {
 		}
 
 	}
-	
-	
-	public static void main(String[]args)
-	{
-		
+
+	public static void main(String[] args) {
+
 		Puma_writeData data = new Puma_writeData();
-	//	data.writeData(ConstantData.AreaRRP_path,"Template", 1, 1, ElementUtils.getRandomInt());
-		
+		// data.writeData(ConstantData.AreaRRP_path,"Template", 1, 1,
+		// ElementUtils.getRandomInt());
+		// data.writeData(ConstantData.WHSPrice_path,"Template", 1,
+		// 2,ElementUtils.getRandomInt());
 	}
 
 }

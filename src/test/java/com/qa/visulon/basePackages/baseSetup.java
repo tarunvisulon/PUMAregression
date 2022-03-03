@@ -10,7 +10,8 @@ import com.qa.visulon.factory.Driverfactory;
 import com.qa.visulon.pages.login_page;
 import com.qa.visulon.pages.productSearch_BlankimportTemplate;
 import com.qa.visulon.pages.productSearch_DownloadTemplate;
-import com.qa.visulon.pages.productSearch_ValidImportTemplate;
+import com.qa.visulon.pages.productSearch_WHSPrice_ValidImportTemplate;
+import com.qa.visulon.pages.productSearch_AreaRRP_ValidImportTemplate;
 
 public class baseSetup {
 
@@ -28,7 +29,9 @@ public class baseSetup {
 
 	public productSearch_BlankimportTemplate it;
 	
-	public productSearch_ValidImportTemplate vd;
+	public productSearch_AreaRRP_ValidImportTemplate area;
+	
+	public productSearch_WHSPrice_ValidImportTemplate whs;
 
 	@BeforeClass
 	public void browserSetup() {
@@ -44,7 +47,9 @@ public class baseSetup {
 
 		it = new productSearch_BlankimportTemplate(driver);
 		
-		vd = new productSearch_ValidImportTemplate(driver);
+		area = new productSearch_AreaRRP_ValidImportTemplate(driver);
+		
+		whs= new productSearch_WHSPrice_ValidImportTemplate(driver);
 
 	}
 
