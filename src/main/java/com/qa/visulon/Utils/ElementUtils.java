@@ -27,6 +27,12 @@ public class ElementUtils {
 		return element.getText();
 
 	}
+	
+	public static String getAttribute(WebElement element, String value)
+	{
+		
+		return element.getAttribute(value);
+	}
 
 	public static String getRandomInt() {
 
@@ -40,4 +46,8 @@ public class ElementUtils {
 		return salt.toString();
 	}
 
+	
+	
+	
+	
 }

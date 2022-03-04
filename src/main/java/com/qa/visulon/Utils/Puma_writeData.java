@@ -34,10 +34,12 @@ public class Puma_writeData {
 
 				row.createCell(ColumnCount);
 				cell.setCellValue(value);
+				
 
 			} else {
 
 				cell.setCellValue(value);
+			
 			}
 
 			FileOutputStream fio = new FileOutputStream(f);
@@ -58,6 +60,8 @@ public class Puma_writeData {
 		// ElementUtils.getRandomInt());
 		// data.writeData(ConstantData.WHSPrice_path,"Template", 1,
 		// 2,ElementUtils.getRandomInt());
+		
+	//	data.writeData(ConstantData.RFC_path, "Template", 1, 2 ,3, ElementUtils.getRandomInt());
 	}
 
 }

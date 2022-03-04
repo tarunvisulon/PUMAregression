@@ -11,6 +11,8 @@ public class ConstantData {
 	public static String Valid_SuccessImportmsg_AreaRRP = "Area RRP Template Imported Successfully";
 
 	public static String Valid_SuccessImportmsg_WHSPrice = "Country WHS Price Imported Successfully";
+	
+	public static String Valid_SuccessImportmsg_RFC = "RFC Template Imported Successfully";
 
 	public static String Common_Article = "073581 48";
 
@@ -30,6 +32,6 @@ public class ConstantData {
 
 	public static String WHSPrice_path = "D:\\TREX\\PUMA\\Regression\\Valid_ImportTemplate\\Country WSP Price 2022 Spring-Summer.xlsx";
 
-	public static String RFC_path = "";
+	public static String RFC_path = "D:\\TREX\\PUMA\\Regression\\Valid_ImportTemplate\\Customer Group RFC 2022 Spring-Summer.xlsx";
 
 }
