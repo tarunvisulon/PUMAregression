@@ -43,15 +43,23 @@ public class Testlistener extends baseSetup implements ITestListener {
 		WebDriver driver = ((baseSetup) currentclass).getDriver();
 
 		System.out.println("***** Success " + result.getName() + " test has Passed *****");
-		String methodName = result.getName().toString().trim();
+		String methodname = result.getName().toString().trim();
 		int status = result.getStatus();
 
+		if (ITestResult.SUCCESS == status) {
+			
+			reports.attachReporter(reporter);
+			reports.createTest(methodname)
+			.log(Status.PASS,"Test Result Passed");
+		
+			reports.flush();
+		}
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		String ScreenshotDir="./PUMARegression/ExtentReport";
+		String ScreenshotDir="./PUMARegression/failure_Screenshot/";
 	      
 		Object currentclass = result.getInstance();
 

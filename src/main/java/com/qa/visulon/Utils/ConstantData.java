@@ -20,9 +20,9 @@ public class ConstantData {
 
 	public static String RFC_btncolor = "#28a745";
 
-	public static String failure_screenshot = "./PUMARegression/FailureSceenshot";
+	public static String failure_screenshot = "./PUMARegression/failure_Screenshot/failed_Images/";
 
-	public static String ExtentReport_path = "./PUMARegression/ExtentReport";
+	public static String ExtentReport_path = "./PUMARegression/ExtentReport/Puma_Sprint.html";
 
 	public static String Blank_ArticleSearch_path = "D:\\TREX\\PUMA\\Regression\\Blank_importTemplate\\Blank_Import_Template 2022 Spring-Summer.xlsx";
 
