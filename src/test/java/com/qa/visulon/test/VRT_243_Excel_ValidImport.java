@@ -22,7 +22,7 @@ public class VRT_243_Excel_ValidImport extends baseSetup {
 
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void AreaRRP_ValidImportExcel() throws InterruptedException {
 		Assert.assertEquals(area.valid_importTemplate(), ConstantData.Season);
 		Assert.assertEquals(area.AreaRRP_ImportTeplate(), ConstantData.Valid_SuccessImportmsg_AreaRRP);
@@ -30,10 +30,10 @@ public class VRT_243_Excel_ValidImport extends baseSetup {
 		// EUR");
 		Assert.assertEquals(area.AreaRRP_ImportValidation(),
 				Integer.toString(Integer.parseInt(productSearch_AreaRRP_ValidImportTemplate.text_AreaRRP)) + ".00 EUR");
-
+         
 	}
 
-	@Test(priority = 2 ,enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void WHS_ValidImportExcel() throws InterruptedException {
 		Assert.assertEquals(whs.valid_importTemplate(), ConstantData.Season);
 		Assert.assertEquals(whs.WHS_ImportTeplate(), ConstantData.Valid_SuccessImportmsg_WHSPrice);
@@ -54,32 +54,29 @@ public class VRT_243_Excel_ValidImport extends baseSetup {
 				Integer.toString(Integer.parseInt(productSearch_WHSPrice_ValidImportTemplate.Singaporetext_WHS))
 						+ ".00 SGD");
 	}
-	
-	
-	
+
 	@Test(priority = 3)
-	public void RFC_validImportExcel() throws InterruptedException, IOException
-	{
-		
-		Assert.assertEquals(rfc.valid_importTemplate(),ConstantData.Season);
+	public void RFC_validImportExcel() throws InterruptedException, IOException {
+
+		Assert.assertEquals(rfc.valid_importTemplate(), ConstantData.Season);
 		Assert.assertEquals(rfc.RFC_ImportTeplate(), ConstantData.Valid_SuccessImportmsg_RFC);
-		rfc.RFC_ImportValidation();
-		
+		Assert.assertEquals(rfc.RFC_ImportValidation(), ConstantData.RFC_btncolor);
+
 		List<String> newValue = productSearch_RFC_ValidImportTemplate.RFC_ImportValueValidation();
-		
+
 		System.out.println(newValue);
+
+		String[][] excelData = ExcelToDataTable.Get_RFC(ConstantData.RFC_path, "Template");
+
+		Assert.assertEquals(newValue.get(0), Integer.toString(Integer.parseInt(excelData[0][0])));
+
+		Assert.assertEquals(newValue.get(1), Integer.toString(Integer.parseInt(excelData[0][1])));
+
+		Assert.assertEquals(newValue.get(2),
+				Integer.toString(Integer.parseInt(excelData[0][0]) + Integer.parseInt(excelData[0][1])));
 		
-		String[][] excelData=ExcelToDataTable.Get(ConstantData.RFC_path, "Template");
-		
-		
-		Assert.assertEquals(newValue.get(0),Integer.toString(Integer.parseInt(excelData[0][0])));
-		
-		Assert.assertEquals(newValue.get(1),Integer.toString(Integer.parseInt(excelData[0][1])));
-		
-		Assert.assertEquals(newValue.get(2),Integer.toString(Integer.parseInt(excelData[0][0])+Integer.parseInt(excelData[0][1])));
-		
-	
+
+
 	}
-	
 
 }

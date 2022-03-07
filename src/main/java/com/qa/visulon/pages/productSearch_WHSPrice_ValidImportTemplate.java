@@ -71,6 +71,9 @@ public class productSearch_WHSPrice_ValidImportTemplate {
 
 	@FindBy(xpath = "//span[normalize-space()='WHS Price SINGAPORE']/parent::td/following-sibling::td/span[@class='attrContent']")
 	private static WebElement fetchWHSPrice_Singapore;
+	
+	@FindBy(xpath = "//div[@onclick='fnCloseProductSpecificationPopup();']")
+	private static WebElement Close_blueI;
 
 	public productSearch_WHSPrice_ValidImportTemplate(WebDriver driver) {
 
@@ -81,7 +84,7 @@ public class productSearch_WHSPrice_ValidImportTemplate {
 	}
 
 	public String valid_importTemplate() {
-		productSearch.click();
+	//	productSearch.click();
 		Excelbtn.click();
 		ImportTemplate.click();
 		String season = SeasonSelection.getText().trim();
@@ -136,9 +139,16 @@ public class productSearch_WHSPrice_ValidImportTemplate {
 
 		Thread.sleep(3000);
 		String SingaporeValue = ElementUtils.getText(fetchWHSPrice_Singapore);
-
-		return Arrays.asList(IndonesiaValue, MalaysiaValue, PhilippinesValue, SingaporeValue);
-
+		Thread.sleep(3000);
+		List<String> WHSvalue = Arrays.asList(IndonesiaValue, MalaysiaValue, PhilippinesValue, SingaporeValue);
+		Thread.sleep(3000);
+		Close_blueI.click();
+		
+		return WHSvalue;
+		
+      
+		
+		
 	}
 
 }

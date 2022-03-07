@@ -10,9 +10,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
 public class ExcelToDataTable {
-	
-	
-	public static String[][] Get(String filePath, String Sheetname) throws IOException {
+
+	public static String[][] Get_RFC(String filePath, String Sheetname) throws IOException {
 
 		File f = new File(filePath);
 		System.out.println(f.exists());
@@ -25,9 +24,9 @@ public class ExcelToDataTable {
 		String[][] userData = new String[rowNumber - 1][columnNumber - 1];
 
 		for (int i = 0; i < rowNumber - 1; i++) {
-			for (int j = 0; j < columnNumber-1; j++) {
+			for (int j = 0; j < columnNumber - 1; j++) {
 
-				userData[i][j] = sheet.getRow(i + 1).getCell(j+1).getStringCellValue();
+				userData[i][j] = sheet.getRow(i + 1).getCell(j + 1).getStringCellValue();
 
 			}
 
@@ -35,12 +34,8 @@ public class ExcelToDataTable {
 
 		fis.close();
 		workbook.close();
-        
+
 		return userData;
 	}
-	
-	
-	
-	
 
 }

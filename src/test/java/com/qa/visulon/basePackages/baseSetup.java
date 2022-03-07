@@ -29,14 +29,13 @@ public class baseSetup {
 	public productSearch_DownloadTemplate ps;
 
 	public productSearch_BlankimportTemplate it;
-	
+
 	public productSearch_AreaRRP_ValidImportTemplate area;
-	
+
 	public productSearch_WHSPrice_ValidImportTemplate whs;
 
 	public productSearch_RFC_ValidImportTemplate rfc;
-	
-	
+
 	@BeforeClass
 	public void browserSetup() {
 
@@ -50,13 +49,19 @@ public class baseSetup {
 		ps = new productSearch_DownloadTemplate(driver);
 
 		it = new productSearch_BlankimportTemplate(driver);
-		
-		area = new productSearch_AreaRRP_ValidImportTemplate(driver);
-		
-		whs= new productSearch_WHSPrice_ValidImportTemplate(driver);
-		
-		rfc= new productSearch_RFC_ValidImportTemplate(driver);
 
+		area = new productSearch_AreaRRP_ValidImportTemplate(driver);
+
+		whs = new productSearch_WHSPrice_ValidImportTemplate(driver);
+
+		rfc = new productSearch_RFC_ValidImportTemplate(driver);
+
+	}
+
+	@BeforeClass
+	public WebDriver getDriver() {
+
+		return driver;
 	}
 
 	@AfterClass

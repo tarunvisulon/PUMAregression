@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="VRT_243">
+
+	<listeners>
+
+
+		<listener class-name="com.qa.visulon.Listeners.Testlistener" />
+		<listener
+
+			class-name="com.qa.visulon.Retry.AnnatationTransformer" />
+
+	</listeners>
+
+	<test name="Excel Download" enabled="true">
+		<classes>
+			<class name="com.qa.visulon.test.VRT_243_ExcelDownload" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Excel Blank Import" enabled="true">
+
+		<classes>
+			<class name="com.qa.visulon.test.VRT_243_Excel_BLankImport" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Excel Valid Import">
+		<classes>
+
+			<class name="com.qa.visulon.test.VRT_243_Excel_ValidImport" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->

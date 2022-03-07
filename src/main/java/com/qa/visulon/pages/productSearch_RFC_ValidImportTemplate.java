@@ -16,12 +16,12 @@ import com.qa.visulon.Utils.Puma_RFCWriteData;
 import com.qa.visulon.Utils.Puma_writeData;
 
 public class productSearch_RFC_ValidImportTemplate {
-	static WebDriver driver;
+	 WebDriver driver;
 
-	public static String  Retail_text;
+	public static String Retail_text;
 	public static String Wholesale_text;
 	public static String Total_RFC;
-	
+
 	@FindBy(xpath = "//div[@class='clientLogo']/parent::div//div[@id='btnProductSearch']")
 	private WebElement productSearch;
 
@@ -64,17 +64,25 @@ public class productSearch_RFC_ValidImportTemplate {
 	@FindBy(xpath = "//div[@id='btnPumaKeyInitiatives']/parent::div/div[@id='btnPumaRFC']")
 	private WebElement bluei_RFC;
 
-	//@FindBy(xpath = "//td[normalize-space()='Retail [RT]']/following-sibling::td/input[@plntyp='RT']")
+	// @FindBy(xpath = "//td[normalize-space()='Retail
+	// [RT]']/following-sibling::td/input[@plntyp='RT']")
 	@FindBy(xpath = "//input[@plntyp='RT']")
 	private static WebElement fetchRFC_RT;
 
-	//@FindBy(xpath = "//td[normalize-space()='Wholesale [WS]']/following-sibling::td/input[@plntyp='WS']")
-	
-	@FindBy(xpath ="//input[@plntyp='WS']" )
+	@FindBy(xpath = "//input[@plntyp='WS']")
 	private static WebElement fetchRFC_WS;
 
 	@FindBy(xpath = "//td[normalize-space()='Total RFC']/following-sibling::td/span[@id='bluei_cgr_rt_total']")
 	private static WebElement fetchRFC_Total;
+	
+	@FindBy(xpath = "//div[@onclick='fnCloseProductSpecificationPopup();']")
+	private static WebElement Close_blueI;
+	
+	@FindBy(xpath = "//div[contains(@class,'blueIArticleDivBtn_Active')]")
+	private WebElement get_RFCbtn_color;
+	
+	@FindBy(tagName = "body")
+	private WebElement blank_click;
 
 	public productSearch_RFC_ValidImportTemplate(WebDriver driver) {
 		this.driver = driver;
@@ -83,25 +91,15 @@ public class productSearch_RFC_ValidImportTemplate {
 	}
 
 	public String valid_importTemplate() {
-		productSearch.click();
+	//	productSearch.click();
 		Excelbtn.click();
 		ImportTemplate.click();
 		String season = SeasonSelection.getText().trim();
-		
-		/*
-		 * Retail_text=ElementUtils.getRandomInt(); System.out.println(Retail_text);
-		 * 
-		 * Wholesale_text=ElementUtils.getRandomInt();
-		 * System.out.println(Wholesale_text);
-		 * Total_RFC=Integer.toString(Integer.parseInt(Retail_text)+Integer.parseInt(
-		 * Wholesale_text));
-		 */
-		System.out.println(Total_RFC);
 		ExceluploadSettings set = new ExceluploadSettings("rfc");
 		Puma_RFCWriteData.ExcelWrite(set);
 		return season;
 	}
-	
+
 	public String RFC_ImportTeplate() throws InterruptedException {
 
 		RFC.click();
@@ -116,8 +114,8 @@ public class productSearch_RFC_ValidImportTemplate {
 		return msg;
 
 	}
-	
-	public void RFC_ImportValidation() throws InterruptedException {
+
+	public String RFC_ImportValidation() throws InterruptedException {
 
 		QuickSsearch_box.sendKeys(ConstantData.Common_Article);
 		QuickSearch_btn.click();
@@ -127,21 +125,21 @@ public class productSearch_RFC_ValidImportTemplate {
 		Thread.sleep(3000);
 		bluei_RFC.click();
 		Thread.sleep(3000);
+		blank_click.click();
+	    String RFCbtnColor = ElementUtils.getbtncolor(get_RFCbtn_color, "background-color");
+	    return RFCbtnColor;
 
 	}
-	
+
 	public static List<String> RFC_ImportValueValidation() throws InterruptedException {
-		
-        
-			
+
 		String RTValue = ElementUtils.getAttribute(fetchRFC_RT, "value");
 		Thread.sleep(3000);
-		String WSValue = ElementUtils.getAttribute(fetchRFC_WS,"value");
+		String WSValue = ElementUtils.getAttribute(fetchRFC_WS, "value");
 		Thread.sleep(3000);
 		String TotalValue = ElementUtils.getText(fetchRFC_Total);
-		Thread.sleep(3000);
-
 		return Arrays.asList(RTValue, WSValue, TotalValue);
+		
 
 	}
 

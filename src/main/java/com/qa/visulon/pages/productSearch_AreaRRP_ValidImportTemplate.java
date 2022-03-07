@@ -62,6 +62,9 @@ public class productSearch_AreaRRP_ValidImportTemplate {
 
 	@FindBy(xpath = "//span[normalize-space()='Area RRP']/parent::td/following-sibling::td/span[@class='attrContent']")
 	private WebElement fetchAreaRRP;
+	
+	@FindBy(xpath = "//div[@onclick='fnCloseProductSpecificationPopup();']")
+	private WebElement Close_blueI;
 
 	public productSearch_AreaRRP_ValidImportTemplate(WebDriver driver) {
 		this.driver = driver;
@@ -102,7 +105,11 @@ public class productSearch_AreaRRP_ValidImportTemplate {
 		ElementUtils.mouseAction(driver, SelectArticles);
 		blueI.click();
 		Thread.sleep(3000);
-		return ElementUtils.getText(fetchAreaRRP);
+		String RRPvalue=ElementUtils.getText(fetchAreaRRP);
+		Thread.sleep(3000);
+		Close_blueI.click();
+		return RRPvalue;
+		
 
 	}
 

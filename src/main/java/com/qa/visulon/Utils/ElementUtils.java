@@ -5,6 +5,7 @@ import java.util.Random;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 
 public class ElementUtils {
 
@@ -47,7 +48,16 @@ public class ElementUtils {
 	}
 
 	
-	
+	public static String getbtncolor(WebElement element,String cssproperty)
+	{
+		
+		String color=element.getCssValue(cssproperty);
+		System.out.print(color);
+		String hexValue = Color.fromString(color).asHex();
+		System.out.print(hexValue);
+		return hexValue;		
+		
+	}
 	
 	
 }

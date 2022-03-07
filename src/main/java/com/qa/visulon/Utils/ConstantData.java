@@ -11,12 +11,18 @@ public class ConstantData {
 	public static String Valid_SuccessImportmsg_AreaRRP = "Area RRP Template Imported Successfully";
 
 	public static String Valid_SuccessImportmsg_WHSPrice = "Country WHS Price Imported Successfully";
-	
+
 	public static String Valid_SuccessImportmsg_RFC = "RFC Template Imported Successfully";
 
 	public static String Common_Article = "073581 48";
 
 	public static String Season = "For Spring/Summer 2022";
+
+	public static String RFC_btncolor = "#28a745";
+
+	public static String failure_screenshot = "./PUMARegression/FailureSceenshot";
+
+	public static String ExtentReport_path = "./PUMARegression/ExtentReport";
 
 	public static String Blank_ArticleSearch_path = "D:\\TREX\\PUMA\\Regression\\Blank_importTemplate\\Blank_Import_Template 2022 Spring-Summer.xlsx";
 
