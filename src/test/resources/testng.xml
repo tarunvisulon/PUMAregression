@@ -7,9 +7,7 @@
 
 
 		<listener class-name="com.qa.visulon.Listeners.Testlistener" />
-		<listener
-
-			class-name="com.qa.visulon.Retry.AnnatationTransformer" />
+		<listener class-name="com.qa.visulon.Retry.AnnatationTransformer" />
 
 	</listeners>
 
