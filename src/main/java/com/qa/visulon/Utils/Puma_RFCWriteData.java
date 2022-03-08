@@ -17,7 +17,7 @@ public class Puma_RFCWriteData {
 		try {
 
 			File f = new File(set.RFC_Excelpath);
-			System.out.println(f.exists());
+		//	System.out.println(f.exists());
 			FileInputStream fis = new FileInputStream(f);
 
 			XSSFWorkbook wb = new XSSFWorkbook(fis);

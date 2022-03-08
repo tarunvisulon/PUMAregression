@@ -7,7 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.visulon.Utils.ConstantData;
 import com.qa.visulon.Utils.ElementUtils;
-import com.qa.visulon.Utils.Puma_writeData;
+import com.qa.visulon.Utils.Puma_AreaRRP_WHS_writeData;
+
 
 public class productSearch_AreaRRP_ValidImportTemplate {
 
@@ -78,7 +79,7 @@ public class productSearch_AreaRRP_ValidImportTemplate {
 		ImportTemplate.click();
 		String season = SeasonSelection.getText().trim();
 		text_AreaRRP=ElementUtils.getRandomInt();
-		Puma_writeData.writeData(ConstantData.AreaRRP_path, "Template", 1, 1, text_AreaRRP);
+		Puma_AreaRRP_WHS_writeData.writeData(ConstantData.AreaRRP_path, "Template", 1, 1, text_AreaRRP);
 		return season;
 	}
 

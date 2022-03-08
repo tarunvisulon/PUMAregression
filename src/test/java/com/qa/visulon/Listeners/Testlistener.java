@@ -72,7 +72,7 @@ public class Testlistener extends baseSetup implements ITestListener {
 		int status = result.getStatus();
 
 		if (ITestResult.FAILURE == status) {
-			Screenshot(driver, methodname);
+		//	Screenshot(driver, methodname);
 			
 			reports.attachReporter(reporter);
 			reports.createTest(methodname)

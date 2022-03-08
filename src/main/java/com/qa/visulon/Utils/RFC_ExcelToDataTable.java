@@ -3,29 +3,28 @@ package com.qa.visulon.Utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.DataProvider;
 
-public class Puma_ExcelReader {
+public class RFC_ExcelToDataTable {
 
-	@DataProvider
-	public  String[][] logindata() throws IOException {
+	public static String[][] Get_RFC(String filePath, String Sheetname) throws IOException {
 
-		File f = new File(ConstantData.Excel_path);
+		File f = new File(filePath);
 		System.out.println(f.exists());
 		FileInputStream fis = new FileInputStream(f);
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
-		XSSFSheet sheet = workbook.getSheet("Userlogin");
+		XSSFSheet sheet = workbook.getSheet(Sheetname);
 		int rowNumber = sheet.getPhysicalNumberOfRows();
 		int columnNumber = sheet.getRow(0).getLastCellNum();
 
-		String[][] userData = new String[rowNumber - 1][columnNumber];
+		String[][] userData = new String[rowNumber - 1][columnNumber - 1];
 
 		for (int i = 0; i < rowNumber - 1; i++) {
-			for (int j = 0; j < columnNumber; j++) {
+			for (int j = 0; j < columnNumber - 1; j++) {
 
-				userData[i][j] = sheet.getRow(i + 1).getCell(j).getStringCellValue();
+				userData[i][j] = sheet.getRow(i + 1).getCell(j + 1).getStringCellValue();
 
 			}
 
@@ -33,8 +32,8 @@ public class Puma_ExcelReader {
 
 		fis.close();
 		workbook.close();
-        
+
 		return userData;
 	}
-	
+
 }

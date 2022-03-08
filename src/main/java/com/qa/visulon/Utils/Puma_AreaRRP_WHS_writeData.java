@@ -11,13 +11,13 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class Puma_writeData {
+public class Puma_AreaRRP_WHS_writeData {
 
 	@SuppressWarnings("null")
 	public static void writeData(String ExcelPath, String Sheetname, int rowCount, int ColumnCount, String value) {
 		try {
 			File f = new File(ExcelPath);
-			System.out.println(f.exists());
+		//	System.out.println(f.exists());
 
 			FileInputStream fis = new FileInputStream(f);
 
@@ -45,7 +45,7 @@ public class Puma_writeData {
 			FileOutputStream fio = new FileOutputStream(f);
 			wb.write(fio);
 			wb.close();
-			System.out.println("WriteData successfully");
+		//	System.out.println("WriteData successfully");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,7 +55,7 @@ public class Puma_writeData {
 
 	public static void main(String[] args) {
 
-		Puma_writeData data = new Puma_writeData();
+	//	Puma_AreaRRP_WHS_writeData data = new Puma_AreaRRP_WHS_writeData();
 		// data.writeData(ConstantData.AreaRRP_path,"Template", 1, 1,
 		// ElementUtils.getRandomInt());
 		// data.writeData(ConstantData.WHSPrice_path,"Template", 1,

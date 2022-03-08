@@ -7,8 +7,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qa.visulon.Utils.ConstantData;
-import com.qa.visulon.Utils.ExcelToDataTable;
-import com.qa.visulon.Utils.Puma_ExcelReader;
+
+
+import com.qa.visulon.Utils.Puma_Login_ExcelReader;
+import com.qa.visulon.Utils.RFC_ExcelToDataTable;
 import com.qa.visulon.basePackages.baseSetup;
 import com.qa.visulon.pages.productSearch_AreaRRP_ValidImportTemplate;
 import com.qa.visulon.pages.productSearch_RFC_ValidImportTemplate;
@@ -16,7 +18,7 @@ import com.qa.visulon.pages.productSearch_WHSPrice_ValidImportTemplate;
 
 public class VRT_243_Excel_ValidImport extends baseSetup {
 
-	@Test(priority = 0, dataProvider = "logindata", dataProviderClass = Puma_ExcelReader.class)
+	@Test(priority = 0, dataProvider = "logindata", dataProviderClass = Puma_Login_ExcelReader.class)
 	public void Puma_login(String uname, String pwd) throws InterruptedException {
 		lp.loginToPUMA(uname, pwd);
 
@@ -64,9 +66,9 @@ public class VRT_243_Excel_ValidImport extends baseSetup {
 
 		List<String> newValue = productSearch_RFC_ValidImportTemplate.RFC_ImportValueValidation();
 
-		System.out.println(newValue);
+		//System.out.println(newValue);
 
-		String[][] excelData = ExcelToDataTable.Get_RFC(ConstantData.RFC_path, "Template");
+		String[][] excelData = RFC_ExcelToDataTable.Get_RFC(ConstantData.RFC_path, "Template");
 
 		Assert.assertEquals(newValue.get(0), Integer.toString(Integer.parseInt(excelData[0][0])));
 

@@ -28,10 +28,9 @@ public class ElementUtils {
 		return element.getText();
 
 	}
-	
-	public static String getAttribute(WebElement element, String value)
-	{
-		
+
+	public static String getAttribute(WebElement element, String value) {
+
 		return element.getAttribute(value);
 	}
 
@@ -47,17 +46,14 @@ public class ElementUtils {
 		return salt.toString();
 	}
 
-	
-	public static String getbtncolor(WebElement element,String cssproperty)
-	{
-		
-		String color=element.getCssValue(cssproperty);
-		System.out.print(color);
+	public static String getbtncolor(WebElement element, String cssproperty) {
+
+		String color = element.getCssValue(cssproperty);
+
 		String hexValue = Color.fromString(color).asHex();
-		System.out.print(hexValue);
-		return hexValue;		
-		
+
+		return hexValue;
+
 	}
-	
-	
+
 }

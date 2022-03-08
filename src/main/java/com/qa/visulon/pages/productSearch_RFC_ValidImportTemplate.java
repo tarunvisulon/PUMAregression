@@ -3,7 +3,7 @@ package com.qa.visulon.pages;
 import java.util.Arrays;
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +13,7 @@ import com.qa.visulon.Utils.ConstantData;
 import com.qa.visulon.Utils.ElementUtils;
 import com.qa.visulon.Utils.ExceluploadSettings;
 import com.qa.visulon.Utils.Puma_RFCWriteData;
-import com.qa.visulon.Utils.Puma_writeData;
+
 
 public class productSearch_RFC_ValidImportTemplate {
 	 WebDriver driver;

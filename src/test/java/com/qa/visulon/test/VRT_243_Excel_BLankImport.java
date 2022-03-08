@@ -4,13 +4,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qa.visulon.Utils.ConstantData;
-import com.qa.visulon.Utils.Puma_ExcelReader;
+
+import com.qa.visulon.Utils.Puma_Login_ExcelReader;
 import com.qa.visulon.basePackages.baseSetup;
 
 public class VRT_243_Excel_BLankImport extends baseSetup 
 {
 
-	@Test(priority = 0, dataProvider = "logindata", dataProviderClass = Puma_ExcelReader.class)
+	@Test(priority = 0, dataProvider = "logindata", dataProviderClass = Puma_Login_ExcelReader.class)
 	public void Puma_login(String uname, String pwd) throws InterruptedException {
 		lp.loginToPUMA(uname, pwd);
 

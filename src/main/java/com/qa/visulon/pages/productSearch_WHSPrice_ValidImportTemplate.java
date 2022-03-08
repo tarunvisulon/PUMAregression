@@ -10,7 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.visulon.Utils.ConstantData;
 import com.qa.visulon.Utils.ElementUtils;
-import com.qa.visulon.Utils.Puma_writeData;
+import com.qa.visulon.Utils.Puma_AreaRRP_WHS_writeData;
+
 
 public class productSearch_WHSPrice_ValidImportTemplate {
 
@@ -93,10 +94,10 @@ public class productSearch_WHSPrice_ValidImportTemplate {
 		Phileppnestext_WHS = ElementUtils.getRandomInt();
 		Singaporetext_WHS = ElementUtils.getRandomInt();
 
-		Puma_writeData.writeData(ConstantData.WHSPrice_path, "Template", 1, 2, Indonesiatext_WHS);
-		Puma_writeData.writeData(ConstantData.WHSPrice_path, "Template", 2, 2, Malaysiatext_WHS);
-		Puma_writeData.writeData(ConstantData.WHSPrice_path, "Template", 3, 2, Phileppnestext_WHS);
-		Puma_writeData.writeData(ConstantData.WHSPrice_path, "Template", 4, 2, Singaporetext_WHS);
+		Puma_AreaRRP_WHS_writeData.writeData(ConstantData.WHSPrice_path, "Template", 1, 2, Indonesiatext_WHS);
+		Puma_AreaRRP_WHS_writeData.writeData(ConstantData.WHSPrice_path, "Template", 2, 2, Malaysiatext_WHS);
+		Puma_AreaRRP_WHS_writeData.writeData(ConstantData.WHSPrice_path, "Template", 3, 2, Phileppnestext_WHS);
+		Puma_AreaRRP_WHS_writeData.writeData(ConstantData.WHSPrice_path, "Template", 4, 2, Singaporetext_WHS);
 
 		return season;
 	}
