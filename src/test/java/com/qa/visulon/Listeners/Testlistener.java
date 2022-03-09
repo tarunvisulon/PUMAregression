@@ -49,7 +49,7 @@ public class Testlistener extends baseSetup implements ITestListener {
 		int status = result.getStatus();
 
 		if (ITestResult.SUCCESS == status) {
-			Screenshot(driver, methodname);
+		//	Screenshot(driver, methodname);
 			reports.attachReporter(reporter);
 			reports.createTest(methodname)
 			.log(Status.PASS,"Test Result Passed");
@@ -61,7 +61,7 @@ public class Testlistener extends baseSetup implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		String ScreenshotDir="../PUMARegression/failure_Screenshot/";
+		String ScreenshotDir="./PUMARegression/PUMARegression/failure_Screenshot/failed_Images/";
 	      
 		Object currentclass = result.getInstance();
 
@@ -72,7 +72,7 @@ public class Testlistener extends baseSetup implements ITestListener {
 		int status = result.getStatus();
 
 		if (ITestResult.FAILURE == status) {
-		//	Screenshot(driver, methodname);
+			Screenshot(driver, methodname);
 			
 			reports.attachReporter(reporter);
 			reports.createTest(methodname)
